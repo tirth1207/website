@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, Subtitles } from "lucide-react";
 
 export const DATA = {
   name: "Tirth Rathod ",
@@ -10,10 +10,9 @@ export const DATA = {
   description:
     "Software enthusiast with a love for coding and creating innovative projects. Currently exploring entrepreneurial ventures while sharing my journey. Passionate about building things that make a difference and actively engaging with the tech community on Twitter.",
   summary:
-    "In 2024, I made the decision to quit 11th science to fully dedicate myself to building and scaling SaaS businesses. My passion for technology led me to explore new ventures beyond traditional education. Along the way, I've developed innovative projects, competed in numerous hackathons, and continue to push the boundaries of what's possible in tech.",
+    "In 2024, I made the decision to quit 11th science to fully dedicate myself to building and scaling my skill in tech field and joined diploma in computer engineering. My passion for technology led me to explore new ventures beyond traditional education. Along the way, I've developed innovative projects, competed in numerous hackathons, and continue to push the boundaries of what's possible in tech.",
   avatarUrl: "/me.jpg",
   skills: [
-    "Java",
     "Python",
     "JavaScript",
     "C",
@@ -29,6 +28,79 @@ export const DATA = {
     "Data Structures and Algorithms",
     "Object-Oriented Programming (OOP)",
     "Debugging and Testing",
+  ],
+  Certificates: [
+    {
+      key: "Microsoft Azure AI Fundamentals: AI Overview",
+      href: "https://learn.microsoft.com/api/achievements/share/en-us/tirthrathod-7927/EJETUT4P?sharingId=54EA46035487F767",
+      site: "Microsoft learn",
+      logoUrl: "/certificate.png",
+      subtitle: "Certificate",
+      title: "Microsoft Azure AI Fundamentals: AI Overview",
+      time: "2024",
+    },
+    {
+      key: "Fundamentals of machine learning",
+      href: "https://learn.microsoft.com/api/achievements/share/en-us/tirthrathod-7927/HYHREYH8?sharingId=54EA46035487F767",
+      site: "Microsoft learn",
+      logoUrl: "/certificate.png",
+      subtitle: "Certificate",
+      title: "Fundamentals of machine learning",
+      time: "2024",
+    },
+    {
+      key: "Introduction to Python",
+      href: "https://learn.microsoft.com/api/achievements/share/en-us/tirthrathod-7927/YVYMTQKR?sharingId=54EA46035487F767",
+      site: "Microsoft learn",
+      logoUrl: "/certificate.png",
+      subtitle: "Certificate",
+      title: "Introduction to Python",
+      time: "2024",
+    },
+    {
+      key: "Google Analytics",
+      href: "https://skillshop.exceedlms.com/student/award/gTjFn4eiFhVhok6eeYUYWwqs",
+      site: "Grow With Google",
+      logoUrl: "/certificate.png",
+      subtitle: "Certificate",
+      title: "Google Analytics",
+      time: "2024",
+    },
+    {
+      key: "Introduction to Generative AI",
+      href: "https://drive.google.com/file/d/13Vj1HXTtg2pTapmUBQfFjgeaqZRcweLy/view?usp=sharing",
+      site: "Grow With Google",
+      logoUrl: "/certificate.png",
+      subtitle: "Certificate",
+      title: "Introduction to Generative AI",
+      time: "2024",
+    },
+    {
+      key: "Machine learning and artificial intelligence",
+      href: "https://drive.google.com/file/d/14Qg31Tahf7M_gcZaQww7li4d_zWiYOHc/view?usp=sharing",
+      site: "Grow With Google",
+      logoUrl: "/certificate.png",
+      subtitle: "Certificate",
+      title: "Machine learning and artificial intelligence",
+      time: "2024",
+    },
+    {
+      key: "UX Design",
+      href: "https://drive.google.com/file/d/1VEynDAE_Lxqm8oI0l38-we2gF7JqlkqF/view?usp=sharing",
+      site: "Grow With Google",
+      logoUrl: "/certificate.png",
+      subtitle: "Certificate",
+      title: "UX Design",
+      time: "2024",
+    },
+
+    // "Fundamentals of machine learning",
+    // "Introduction to Python",
+    // "Google Analytics for Beginners",
+    // "Advanced Google Analytics",
+    // "Introduction to Generative AI",
+    // "Machine learning and artificial intelligence",
+    // "UX Design",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
