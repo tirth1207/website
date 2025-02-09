@@ -26,7 +26,6 @@ export const DATA = {
     "Git",
     "AWS",
     "Data Structures and Algorithms",
-    "Object-Oriented Programming (OOP)",
     "Debugging and Testing",
   ],
   Certificates: [
