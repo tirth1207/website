@@ -221,7 +221,7 @@ export const DATA = {
         {
           type: "Website",
           href: "https://collabcode-chi.vercel.app/",
-          icon: "none",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "Tirth rathod portfolio/public/collabcode.png",
