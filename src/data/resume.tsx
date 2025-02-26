@@ -224,7 +224,7 @@ export const DATA = {
           icon: "none",
         },
       ],
-      image: "collabcode.png",
+      image: "Tirth rathod portfolio/public/collabcode.png",
       video:
         "",
     },
