@@ -224,7 +224,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "Tirth rathod portfolio/public/collabcode.png",
+      image: "/collabcode.png",
       video:
         "",
     },
