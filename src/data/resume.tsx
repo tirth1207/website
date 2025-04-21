@@ -228,6 +228,30 @@ export const DATA = {
       video:
         "",
     },
+    {
+      title: "Sky Vault",
+      href: "https://sky-vault-kappa.vercel.app/",
+      dates: "Mar 2025",
+      active: true,
+      description:
+        "File sharing and Cloud storing",
+      technologies: [
+        "next.js",
+        "Typescript",
+        "convex",
+        "clerk",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://sky-vault-kappa.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "/collabcode.png",
+      video:
+        "",
+    },
     // {
     //   title: "Magic UI",
     //   href: "https://magicui.design",
