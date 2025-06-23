@@ -12,22 +12,43 @@ export const DATA = {
   summary:
     "In 2024, I made the decision to quit 11th science to fully dedicate myself to building and scaling my skill in tech field and joined diploma in computer engineering. My passion for technology led me to explore new ventures beyond traditional education. Along the way, I've developed innovative projects, competed in numerous hackathons, and continue to push the boundaries of what's possible in tech.",
   avatarUrl: "/me.jpg",
-  skills: [
+  s  skills: [
     "Python",
     "JavaScript",
+    "TypeScript",
     "C",
     "HTML/CSS",
-    "Flask",
-    "Bootstrap",
-    "Django",
     "React.js",
+    "Next.js",
+    "Flask",
+    "Django",
+    "Bootstrap",
+    "Tailwind CSS",
+    "Convex",
+    "Clerk Auth",
+    "Supabase",
+    "Firebase",
     "SQL",
     "MongoDB",
-    "Git",
+    "Git & GitHub",
+    "Docker",
+    "Linux",
     "AWS",
+    "MicroPython",
+    "ESP32-CAM",
+    "Arduino",
     "Data Structures and Algorithms",
     "Object-Oriented Programming (OOP)",
+    "REST API Development",
     "Debugging and Testing",
+    "UI/UX Design",
+    "Figma",
+    "Responsive Web Design",
+    "Team Collaboration Tools",
+    "Agile & Project Management",
+    "AI Integration with APIs",
+    "Prompt Engineering",
+    "Generative AI",
   ],
   Certificates: [
     {
@@ -205,53 +226,73 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "CollabCode",
-      href: "https://collabcode-chi.vercel.app/",
-      dates: "Feb 2025",
+      title: "DevNest",
+      href: "https://dev-nest-6t4w.vercel.app/",
+      dates: "June 2025",
       active: true,
-      description:
-        "Interactive Code Editor",
+      description: "",
       technologies: [
         "next.js",
-        "Typescript",
-        "convex",
-        "clerk",
+        "supabase",
+        "github",
+        "shadcn",
       ],
       links: [
         {
-          type: "Website",
-          href: "https://collabcode-chi.vercel.app/",
+          type: "DevNest",
+          href: "https://dev-nest-6t4w.vercel.app/",
           icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/collabcode.png",
-      video:
-        "",
+        }
+      ]
     },
-    {
-      title: "Sky Vault",
-      href: "https://sky-vault-kappa.vercel.app/",
-      dates: "Mar 2025",
-      active: true,
-      description:
-        "File sharing and Cloud storing",
-      technologies: [
-        "next.js",
-        "Typescript",
-        "convex",
-        "clerk",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://sky-vault-kappa.vercel.app/",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "/collabcode.png",
-      video:
-        "",
-    },
+    // {
+    //   title: "CollabCode",
+    //   href: "https://collabcode-chi.vercel.app/",
+    //   dates: "Feb 2025",
+    //   active: true,
+    //   description:
+    //     "Interactive Code Editor",
+    //   technologies: [
+    //     "next.js",
+    //     "Typescript",
+    //     "convex",
+    //     "clerk",
+    //   ],
+    //   links: [
+    //     {
+    //       type: "Website",
+    //       href: "https://collabcode-chi.vercel.app/",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //   ],
+    //   image: "/collabcode.png",
+    //   video:
+    //     "",
+    // },
+    // {
+    //   title: "Sky Vault",
+    //   href: "https://sky-vault-kappa.vercel.app/",
+    //   dates: "Mar 2025",
+    //   active: true,
+    //   description:
+    //     "File sharing and Cloud storing",
+    //   technologies: [
+    //     "next.js",
+    //     "Typescript",
+    //     "convex",
+    //     "clerk",
+    //   ],
+    //   links: [
+    //     {
+    //       type: "Website",
+    //       href: "https://sky-vault-kappa.vercel.app/",
+    //       icon: <Icons.globe className="size-3" />,
+    //     },
+    //   ],
+    //   image: "/collabcode.png",
+    //   video:
+    //     "",
+    // },
     // {
     //   title: "Magic UI",
     //   href: "https://magicui.design",
