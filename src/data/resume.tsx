@@ -12,7 +12,7 @@ export const DATA = {
   summary:
     "In 2024, I made the decision to quit 11th science to fully dedicate myself to building and scaling my skill in tech field and joined diploma in computer engineering. My passion for technology led me to explore new ventures beyond traditional education. Along the way, I've developed innovative projects, competed in numerous hackathons, and continue to push the boundaries of what's possible in tech.",
   avatarUrl: "/me.jpg",
-  s  skills: [
+  skills: [
     "Python",
     "JavaScript",
     "TypeScript",
