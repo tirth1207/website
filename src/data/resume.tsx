@@ -245,6 +245,7 @@ export const DATA = {
         }
       ],
       image: "/devnest.png",
+      video: "",
     },
     // {
     //   title: "CollabCode",
