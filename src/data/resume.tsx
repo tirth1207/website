@@ -244,8 +244,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         }
       ],
-      image: "/devnest.png",
-      video: "",
+      image: "",
+      video: "/devnest.mp4",
     },
     // {
     //   title: "CollabCode",
