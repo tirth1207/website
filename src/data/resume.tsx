@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon, Subtitles } from "lucide-react";
+import { Component, HomeIcon, NotebookIcon, Subtitles } from "lucide-react";
 
 export const DATA = {
   name: "Tirth Rathod ",
@@ -11,45 +11,44 @@ export const DATA = {
     "Software enthusiast with a love for coding and creating innovative projects. Currently exploring entrepreneurial ventures while sharing my journey. Passionate about building things that make a difference and actively engaging with the tech community on Twitter.",
   summary:
     "In 2024, I made the decision to quit 11th science to fully dedicate myself to building and scaling my skill in tech field and joined diploma in computer engineering. My passion for technology led me to explore new ventures beyond traditional education. Along the way, I've developed innovative projects, competed in numerous hackathons, and continue to push the boundaries of what's possible in tech.",
-  avatarUrl: "/me.jpg",
+  avatarUrl: "/tirth.png",
   skills: [
+    // ✅ Core Skills (kept)
     "Python",
-    "JavaScript",
-    "TypeScript",
-    "C",
-    "HTML/CSS",
-    "React.js",
-    "Next.js",
-    "Flask",
-    "Django",
-    "Bootstrap",
+    "JavaScript / TypeScript",
+    "React.js / Next.js",
     "Tailwind CSS",
-    "Convex",
-    "Clerk Auth",
-    "Supabase",
-    "Firebase",
-    "SQL",
-    "MongoDB",
+    "SQL & MongoDB",
     "Git & GitHub",
     "Docker",
     "Linux",
     "AWS",
-    "MicroPython",
-    "ESP32-CAM",
-    "Arduino",
-    "Data Structures and Algorithms",
-    "Object-Oriented Programming (OOP)",
-    "REST API Development",
-    "Debugging and Testing",
-    "UI/UX Design",
-    "Figma",
-    "Responsive Web Design",
-    "Team Collaboration Tools",
-    "Agile & Project Management",
-    "AI Integration with APIs",
-    "Prompt Engineering",
-    "Generative AI",
+    "AI Integration & Generative AI",
+  
+    // ❌ Removed (secondary / less impactful)
+    // "Arduino / ESP32",
+    // "C",
+    // "HTML/CSS",
+    // "Flask",
+    // "Django",
+    // "Bootstrap",
+    // "Convex",
+    // "Clerk Auth",
+    // "Supabase",
+    // "Firebase",
+    // "MicroPython",
+    // "Data Structures and Algorithms",
+    // "Object-Oriented Programming (OOP)",
+    // "REST API Development",
+    // "Debugging and Testing",
+    // "UI/UX Design",
+    // "Figma",
+    // "Responsive Web Design",
+    // "Team Collaboration Tools",
+    // "Agile & Project Management",
+    // "Prompt Engineering",
   ],
+  
   Certificates: [
     {
       key: "Microsoft Azure AI Fundamentals: AI Overview",
@@ -126,6 +125,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/component", icon: Component, label: "Component"}
   ],
   contact: {
     email: "rathodtirth1207@gmail.com",
@@ -226,11 +226,34 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Portify",
+      href: "https://portify.co.in/",
+      dates: "July 2025",
+      active: true,
+      description: "Convert your resume to stunning portfolio and deploy it in seconds",
+      technologies: [
+        "next.js",
+        "supabase",
+        "shadcn",
+        "gemini",
+        "vercel api"
+      ],
+      links: [
+        {
+          type: "Portify",
+          href: "https://portify.co.in/",
+          icon: <Icons.globe className="size-3" />,
+        }
+      ],
+      image: "/portify.png",
+      video: "",
+    },
+    {
       title: "DevNest",
       href: "https://dev-nest-6t4w.vercel.app/",
       dates: "June 2025",
-      active: true,
-      description: "",
+      active: false,
+      description: "This Project is not in working stage.",
       technologies: [
         "next.js",
         "supabase",
