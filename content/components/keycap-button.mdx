@@ -1,0 +1,109 @@
+---
+title: "KeycapButton"
+slug: "key-cap-button"
+description: "A beautiful keycap-style button component with glassmorphism effects, rainbow glow animations, and realistic key press interactions. Perfect for keyboard shortcuts display, gaming interfaces, or any UI that needs a mechanical keyboard aesthetic."
+cli: "npm install keycap-button-component"
+github: "https://github.com/yourrepo/keycap-button-component"
+docs: "/docs/components/keycap-button"
+tags: ["ui", "button", "keycap", "keyboard", "gaming", "glassmorphism", "animation", "interactive", "mechanical", "shortcuts", "controls"]
+---
+
+## Usage
+
+```tsx
+import KeycapButton from "@/components/KeyCapButton";
+
+// Basic usage - simple keycap button
+<KeycapButton>Enter</KeycapButton>
+
+// Common keyboard keys
+<KeycapButton>Ctrl</KeycapButton>
+<KeycapButton>Alt</KeycapButton>
+<KeycapButton>Space</KeycapButton>
+<KeycapButton>Shift</KeycapButton>
+
+// Special characters
+<KeycapButton>⌘</KeycapButton>
+<KeycapButton>⌥</KeycapButton>
+<KeycapButton>⌃</KeycapButton>
+
+// Function keys
+<KeycapButton>F1</KeycapButton>
+<KeycapButton>F12</KeycapButton>
+<KeycapButton>Esc</KeycapButton>
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `children` | `string` | ✅ | - | The text content to display on the keycap button. |
+
+## Examples
+
+### Keyboard Shortcuts
+
+```tsx
+// Common keyboard shortcuts display
+<div className="flex gap-2 flex-wrap">
+  <KeycapButton>Ctrl</KeycapButton>
+  <KeycapButton>+</KeycapButton>
+  <KeycapButton>C</KeycapButton>
+</div>
+```
+
+### Mac-Style Shortcuts
+
+```tsx
+// Mac-style shortcuts
+<div className="flex gap-2 flex-wrap">
+  <KeycapButton>⌘</KeycapButton>
+  <KeycapButton>+</KeycapButton>
+  <KeycapButton>S</KeycapButton>
+</div>
+```
+
+### Gaming Controls
+
+```tsx
+// Gaming controls
+<div className="flex gap-2 flex-wrap">
+  <KeycapButton>W</KeycapButton>
+  <KeycapButton>A</KeycapButton>
+  <KeycapButton>S</KeycapButton>
+  <KeycapButton>D</KeycapButton>
+</div>
+```
+
+### Function Keys
+
+```tsx
+// Function keys
+<div className="flex gap-2 flex-wrap">
+  <KeycapButton>F1</KeycapButton>
+  <KeycapButton>F2</KeycapButton>
+  <KeycapButton>F3</KeycapButton>
+</div>
+```
+
+### Special Characters
+
+```tsx
+// Special characters and symbols
+<div className="flex gap-2 flex-wrap">
+  <KeycapButton>⌘</KeycapButton>
+  <KeycapButton>⌥</KeycapButton>
+  <KeycapButton>⌃</KeycapButton>
+  <KeycapButton>⇧</KeycapButton>
+</div>
+```
+
+## Features
+
+- **Glassmorphism Design**: Modern glass-like appearance with backdrop blur
+- **Rainbow Glow Animation**: Animated rainbow border effect
+- **Realistic Key Press**: Scale animation on active state
+- **Responsive Design**: Adapts to different screen sizes
+- **Accessibility**: Proper keyboard navigation support
+- **Customizable**: Easy to style with additional CSS classes
+- **Performance**: Optimized animations and rendering

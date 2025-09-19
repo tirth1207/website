@@ -1,0 +1,148 @@
+---
+title: "AsciiImage"
+slug: "ascii"
+description: "A powerful React component that converts images to ASCII art with multiple rendering modes, color support, responsive sizing, and advanced image processing features like dithering and gamma correction. Perfect for creating retro-style image displays, terminal art, or unique visual effects."
+cli: "npm install ascii-image-component"
+github: "https://github.com/yourrepo/ascii-image-component"
+docs: "/docs/components/ascii-image"
+tags: ["image", "ascii", "art", "converter", "responsive", "canvas", "processing", "retro", "terminal", "visual-effects", "image-processing", "dithering", "color", "monochrome"]
+---
+
+## Usage
+
+```tsx
+import { AsciiImage } from "@/components/ascii";
+
+// Basic usage - simple ASCII conversion
+<AsciiImage src="/path/to/image.jpg" width={80} />
+
+// Classic mode with custom sizing
+<AsciiImage 
+  src="/path/to/image.jpg" 
+  width={120}
+  height={60}
+  mode="classic"
+  theme="dark"
+/>
+
+// Blocks mode for high contrast effects
+<AsciiImage 
+  src="/path/to/image.jpg" 
+  width={100}
+  mode="blocks"
+  gamma={1.2}
+  dithering={true}
+/>
+
+// Color mode preserving original colors
+<AsciiImage 
+  src="/path/to/image.jpg" 
+  width={150}
+  height={100}
+  mode="classic"
+  colorMode="color"
+  fitToContainer={true}
+/>
+
+// Responsive container fitting
+<AsciiImage 
+  src="/path/to/image.jpg" 
+  mode="detailed"
+  fitToContainer={true}
+  className="w-full h-64"
+  gamma={1.5}
+  dithering={false}
+/>
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `src` | `string` | ✅ | - | The source path or URL of the image to convert to ASCII. |
+| `alt` | `string` | ❌ | `"ASCII converted image"` | Alternative text for accessibility. |
+| `width` | `number` | ❌ | `80` | Width of the ASCII output in characters. |
+| `height` | `number` | ❌ | - | Height of the ASCII output in characters. Auto-calculated if not provided. |
+| `mode` | `'classic' \| 'blocks' \| 'shades' \| 'numbers' \| 'alphanumeric' \| 'minimal' \| 'detailed' \| 'pixel'` | ❌ | `"classic"` | ASCII character set mode: 'classic' for traditional ASCII, 'blocks' for high-contrast blocks, 'shades' for gradient blocks, 'numbers' for numeric characters, 'alphanumeric' for letters/numbers, 'minimal' for simple characters, 'detailed' for fine detail, 'pixel' for pixelated effect. |
+| `colorMode` | `'none' \| 'color' \| 'grayscale'` | ❌ | `"none"` | Color rendering mode - none for monochrome, color for full color, grayscale for grayscale. |
+| `theme` | `'light' \| 'dark' \| 'auto'` | ❌ | `"auto"` | Theme for monochrome rendering. Auto detects system preference. |
+| `gamma` | `number` | ❌ | `1.0` | Gamma correction value for brightness adjustment. |
+| `dithering` | `boolean` | ❌ | `true` | Enable Floyd-Steinberg dithering for better quality. |
+| `aspectRatio` | `number` | ❌ | `0.5` | Character aspect ratio for proper proportions. |
+| `fitToContainer` | `boolean` | ❌ | `true` | Whether to fit ASCII output to container size responsively. |
+| `maxWidth` | `number` | ❌ | - | Maximum width constraint in characters. |
+| `maxHeight` | `number` | ❌ | - | Maximum height constraint in characters. |
+| `className` | `string` | ❌ | - | Additional CSS classes to apply to the container. |
+| `style` | `React.CSSProperties` | ❌ | - | Inline styles for the container. |
+| `onLoad` | `() => void` | ❌ | - | Callback fired when image loads successfully. |
+| `onError` | `(error: Error) => void` | ❌ | - | Callback fired when image fails to load. |
+
+## Examples
+
+### Classic ASCII Art
+
+```tsx
+// Classic ASCII art with traditional characters
+<AsciiImage 
+  src="/images/portrait.jpg" 
+  width={100} 
+  height={60}
+  mode="classic" 
+  theme="dark"
+  gamma={1.2}
+/>
+```
+
+### High-Contrast Blocks Mode
+
+```tsx
+// High-contrast blocks mode
+<AsciiImage 
+  src="/images/landscape.jpg" 
+  width={120}
+  height={80}
+  mode="blocks"
+  colorMode="none"
+  dithering={true}
+/>
+```
+
+### Color-Preserving ASCII Art
+
+```tsx
+// Color-preserving ASCII art
+<AsciiImage 
+  src="/images/colorful-art.jpg" 
+  width={150}
+  height={100}
+  mode="classic"
+  colorMode="color"
+  fitToContainer={true}
+/>
+```
+
+### Responsive Container
+
+```tsx
+// Responsive container with detailed mode
+<AsciiImage 
+  src="/images/logo.png" 
+  mode="detailed"
+  fitToContainer={true}
+  gamma={1.5}
+  dithering={false}
+  className="w-full h-64"
+  maxWidth={200}
+  maxHeight={150}
+/>
+```
+
+## Features
+
+- **Multiple Rendering Modes**: Choose from classic ASCII, blocks, shades, numbers, and more
+- **Color Support**: Full color, grayscale, or monochrome rendering
+- **Responsive Design**: Automatically fits to container or uses fixed dimensions
+- **Advanced Processing**: Floyd-Steinberg dithering and gamma correction
+- **Theme Support**: Light, dark, or auto theme detection
+- **Accessibility**: Proper alt text and ARIA labels
+- **Performance**: Optimized canvas rendering with error handling

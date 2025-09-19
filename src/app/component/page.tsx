@@ -1,37 +1,26 @@
-import BlurFade from "@/components/magicui/blur-fade";
-import { Components } from "@/data/component";
-import Link from "next/link";
+import Link from "next/link"
+import { Components } from "@/data/component"
 
-export const metadata = {
-  title: "Blog",
-  description: "My thoughts on software development, life, and more.",
-};
-
-const BLUR_FADE_DELAY = 0.04;
-
-export default async function BlogPage() {
-
+export default function HomePage() {
   return (
     <section>
-      <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="font-medium text-2xl mb-8 tracking-tighter">Components</h1>
-      </BlurFade>
-      {Components.map((component, idx) => (
-        <BlurFade delay={BLUR_FADE_DELAY * 2 + idx * 0.05} key={component.name}>
+      <h1 className="font-medium text-2xl mb-8 tracking-tighter text-center">Component Library</h1>
+      <div className="flex flex-col space-y-1 mb-4">
+        {Components.map((component, id) => (
           <Link
-            className="flex flex-col space-y-1 mb-4"
+            key={component.slug}
+            className="flex flex-col space-y-1 mb-4 border rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer"
             href={`/component/${component.slug}`}
           >
             <div className="w-full flex flex-col">
-              <p className="tracking-tight">{component.name}</p>
-              <p className="h-6 text-xs text-muted-foreground">
+              <p className="tracking-tight font-semibold text-lg">{component.name}</p>
+              <p className="h-8 text-xs text-muted-foreground line-clamp-2">
                 {component.description}
               </p>
             </div>
           </Link>
-        </BlurFade>
-      ))}
+        ))}
+      </div>
     </section>
-    
-  );
+  )
 }

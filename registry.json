@@ -1,0 +1,47 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "acme",
+    "homepage": "https://localhost:3000/",
+    "items": [
+      {
+        "name": "ascii",
+        "type": "registry:component",
+        "title": "Ascii",
+        "description": "Convert Any Image to Ascii",
+        "registryDependencies": [],
+        "files": [
+          {
+            "path": "registry/ascii/ascii.tsx",
+            "type": "registry:component"
+          }
+        ]
+      },
+      {
+        "name": "stamp",
+        "type": "registry:component",
+        "title": "Stamp",
+        "description": "Convert Any Image to beautiful Stamp",
+        "registryDependencies": [],
+        "files": [
+          {
+            "path": "registry/stamp/stamp.tsx",
+            "type": "registry:component"
+          }
+        ]
+      },
+      {
+        "name": "key-cap-button",
+        "type": "registry:component",
+        "title": "KeyCapButton",
+        "description": "A simple Key Cap Button component",
+        "registryDependencies": ["button"],
+        "files": [
+          {
+            "path": "registry/KeyCapButton/KeyCapButton.tsx",
+            "type": "registry:component"
+          }
+        ]
+      }
+    ]
+  }
+  

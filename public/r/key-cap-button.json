@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "key-cap-button",
+  "type": "registry:component",
+  "title": "KeyCapButton",
+  "description": "A simple Key Cap Button component",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/KeyCapButton/KeyCapButton.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport React from \"react\";\r\n\r\ninterface KeycapButtonProps {\r\n  children: string;\r\n}\r\n\r\nconst KeycapButton: React.FC<KeycapButtonProps> = ({ children }) => {\r\n  return (\r\n    <div className=\"grid h-[500px] place-items-center text-center\">\r\n      {/* Button Section */}\r\n      <div className=\"relative z-10\">\r\n        <button\r\n          className={`\r\n            relative px-4 py-3 rounded-2xl font-['Pixelify_Sans']\r\n            bg-white/30 dark:bg-neutral-900/40 shadow-2xl overflow-hidden \r\n            border border-white dark:border-neutral-800\r\n            group\r\n            transition-colors\r\n          `}\r\n        >\r\n          {/* Glow Background */}\r\n          <span\r\n            className={cn(\r\n              // Outer glow behind the button; expand by padding amount\r\n              \"pointer-events-none absolute inset-0 -m-[var(--padding)]\",\r\n              \"rounded-[var(--brad)] blur-[20px] opacity-50\",\r\n              // Conic gradient background + rainbow rotation\r\n              \"bg-rainbow-conic animate-keycap-rainbow pause-on-active\",\r\n              // Place behind\r\n              \"-z-10\",\r\n            )}\r\n          ></span>\r\n\r\n          {/* Glass Overlay */}\r\n          <span\r\n            className={`\r\n              absolute inset-0 -z-10 rounded-2xl\r\n              bg-white/10 backdrop-blur-xl\r\n              shadow-inner border border-white/20\r\n              before:absolute before:inset-0 before:rounded-2xl\r\n              before:bg-gradient-to-b before:from-white/40 before:to-transparent\r\n              before:opacity-30\r\n              transition-colors\r\n            `}\r\n          ></span>\r\n\r\n          {/* Inner Label */}\r\n          <span\r\n            className={`\r\n              block rounded-2xl px-4 py-3\r\n              bg-gradient-to-b from-neutral-700 to-neutral-800\r\n              dark:from-neutral-800 dark:to-neutral-900\r\n              transition-transform duration-100 group-active:scale-90 shadow-lg\r\n              transition-colors\r\n            `}\r\n          >\r\n            <span\r\n              className={`\r\n                block rounded-full px-8 py-3 text-white text-lg\r\n                bg-gradient-to-b from-neutral-800 to-neutral-700\r\n                dark:from-neutral-900 dark:to-neutral-800\r\n                transition-colors\r\n              `}\r\n            >\r\n              {children}\r\n            </span>\r\n          </span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default KeycapButton;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

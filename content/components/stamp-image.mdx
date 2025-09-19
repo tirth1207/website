@@ -1,0 +1,121 @@
+---
+title: "StampImage"
+slug: "stamp"
+description: "A React component that converts any image into a beautiful stamp with perforated borders, customizable colors, and realistic stamp effects. Perfect for creating vintage-style image displays, postage stamp effects, or adding artistic borders to images."
+cli: "npm install stamp-image-component"
+github: "https://github.com/yourrepo/stamp-image-component"
+docs: "/docs/components/stamp-image"
+tags: ["image", "stamp", "vintage", "border", "perforated", "canvas", "art", "converter", "visual-effects", "postage", "retro"]
+---
+
+## Usage
+
+```tsx
+import { StampImage } from "@/components/stamp";
+
+// Basic usage - simple stamp conversion
+<StampImage src="/path/to/image.jpg" />
+
+// Custom size stamp
+<StampImage 
+  src="/path/to/image.jpg" 
+  size={200}
+  innerColor="#ffffff"
+  outerColor="#c0c0c0"
+/>
+
+// Vintage stamp with custom colors
+<StampImage 
+  src="/path/to/image.jpg" 
+  size={150}
+  innerColor="#f8f8f8"
+  outerColor="#8b4513"
+  className="shadow-lg"
+/>
+
+// Large stamp for display
+<StampImage 
+  src="/path/to/image.jpg" 
+  size={300}
+  innerColor="#fffef7"
+  outerColor="#d4af37"
+  onLoad={() => console.log('Stamp loaded')}
+  onError={() => console.log('Error loading image')}
+/>
+```
+
+## Props
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `src` | `string` | ✅ | - | The source path or URL of the image to convert to a stamp. |
+| `alt` | `string` | ❌ | `"Stamp image"` | Alternative text for accessibility. |
+| `size` | `number` | ❌ | `200` | Size of the stamp in pixels. If not provided, uses original image dimensions. |
+| `className` | `string` | ❌ | `""` | Additional CSS classes to apply to the stamp canvas. |
+| `onLoad` | `() => void` | ❌ | - | Callback fired when the image loads successfully. |
+| `onError` | `() => void` | ❌ | - | Callback fired when the image fails to load. |
+| `innerColor` | `string` | ❌ | `"#ffffff"` | Color for the inner part of the stamp (background). |
+| `outerColor` | `string` | ❌ | `"#c0c0c0"` | Color for the outer part of the stamp (border, perforation). |
+
+## Examples
+
+### Basic Stamp
+
+```tsx
+// Classic white stamp with gray border
+<StampImage 
+  src="/images/portrait.jpg" 
+  size={200}
+  innerColor="#ffffff"
+  outerColor="#c0c0c0"
+/>
+```
+
+### Vintage Stamp
+
+```tsx
+// Vintage brown stamp
+<StampImage 
+  src="/images/landscape.jpg" 
+  size={150}
+  innerColor="#f8f8f8"
+  outerColor="#8b4513"
+  className="shadow-xl"
+/>
+```
+
+### Gold Stamp
+
+```tsx
+// Gold stamp for special occasions
+<StampImage 
+  src="/images/logo.png" 
+  size={250}
+  innerColor="#fffef7"
+  outerColor="#d4af37"
+  onLoad={() => console.log('Stamp ready!')}
+/>
+```
+
+### Custom Colors
+
+```tsx
+// Custom color scheme
+<StampImage 
+  src="/images/artwork.jpg" 
+  size={180}
+  innerColor="#f0f8ff"
+  outerColor="#4169e1"
+  className="drop-shadow-lg"
+/>
+```
+
+## Features
+
+- **Perforated Borders**: Realistic stamp perforation effects
+- **Customizable Colors**: Choose inner and outer colors
+- **Responsive Sizing**: Automatic aspect ratio preservation
+- **Error Handling**: Graceful fallback for failed image loads
+- **Canvas Rendering**: High-quality image processing
+- **Accessibility**: Proper ARIA labels and alt text
+- **Drop Shadow**: Built-in shadow effects for realism
