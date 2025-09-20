@@ -1,12 +1,12 @@
-import { AnimatedHelloText } from '@/components/handwriting'
-import React from 'react'
+// import { AnimatedHelloText } from '@/components/handwriting'
+// import React from 'react'
 
-function page() {
-  return (
-    <div>
-        <AnimatedHelloText>Hello</AnimatedHelloText>
-    </div>
-  )
-}
+// function page() {
+//   return (
+//     <div>
+//         <AnimatedHelloText>Hello</AnimatedHelloText>
+//     </div>
+//   )
+// }
 
-export default page
+// export default page
