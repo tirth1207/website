@@ -1,20 +1,39 @@
+"use client"
 import ApodViewer from "@/components/apod";
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
+import Sign from "@/components/sign";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { useLoading } from "@/context/loading-context";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
+import { useEffect } from "react";
 import Markdown from "react-markdown";
+import Loading from "./loading";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const { loading, setLoading } = useLoading();
+  
+  useEffect(() => {
+    // Simulate loading time or fetch data
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Adjust as needed
+    
+    return () => clearTimeout(timer);
+  }, [setLoading]);
+  
+  if (loading) {
+    return <Loading />;
+  }
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col min-h-[100dvh] space-y-10 swipe-up-enter">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -216,6 +235,9 @@ export default function Page() {
           </BlurFade>
         </div>
       </section> */}
+      <section>
+        <ApodViewer />
+      </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
@@ -241,9 +263,7 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
-      <section>
-        <ApodViewer />
-      </section>
+      
     </main>
   );
 }

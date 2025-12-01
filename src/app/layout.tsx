@@ -1,11 +1,12 @@
-import Navbar from "@/components/navbar";
+import { NavbarWrapper } from "@/components/navbar-wrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LoadingProvider } from "@/context/loading-context";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -28,32 +29,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
   twitter: {
     title: `${DATA.name}`,
     card: "summary_large_image",
   },
-  verification: {
-    google: "",
-    yandex: "",
-  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -64,12 +46,21 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            {children}
-            <Analytics />
-            <Navbar />
+            <LoadingProvider>
+              {/* 🔥 This wrapper contains ONLY content that gets replaced by loading.tsx */}
+              <div className="content-wrapper">
+                {children}
+              </div>
+
+              {/* 🔥 Navbar is conditionally hidden during loading */}
+              <NavbarWrapper />
+
+              <Analytics />
+            </LoadingProvider>
           </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+

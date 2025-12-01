@@ -43,7 +43,7 @@ function Space() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10 dark:text-white text-black grid grid-cols-2 gap-4">
+    <div className="max-w-3xl mx-auto px-4 py-10 dark:text-white text-black">
       {/* Media */}
       {photoData.media_type === "image" ? (
         <img
@@ -59,11 +59,13 @@ function Space() {
           className="w-full h-96 rounded-xl shadow-lg mb-6"
         />
       )}
+      <p className="dark:text-gray-300 text-gray-800 mb-5">{photoData.date}</p>
+      <h1 className="text-xl font-bold mb-3">{photoData.title}</h1>
 
       {/* Content */}
-      <h1 className="text-4xl font-bold mb-3">{photoData.title}</h1>
+      {/* <h1 className="text-4xl font-bold mb-3">{photoData.title}</h1>
       <p className="dark:text-gray-300 text-gray-800 mb-5">{photoData.date}</p>
-      <p className="leading-relaxed dark:text-gray-200 text-gray-800">{photoData.explanation}</p>
+      <p className="leading-relaxed dark:text-gray-200 text-gray-800">{photoData.explanation}</p> */}
     </div>
   );
 }
