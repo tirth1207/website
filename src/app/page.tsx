@@ -1,3 +1,4 @@
+import ApodViewer from "@/components/apod";
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
@@ -239,6 +240,9 @@ export default function Page() {
             </div>
           </BlurFade>
         </div>
+      </section>
+      <section>
+        <ApodViewer />
       </section>
     </main>
   );
