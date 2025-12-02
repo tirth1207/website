@@ -15,7 +15,11 @@ interface ApodError {
 
 type ApodResponse = ApodData | ApodError;
 
-function Space() {
+interface SpaceProps {
+  variant?: "title" | "full"; // LIMIT variants (optional)
+}
+
+export default function Space({ variant = "full" }: SpaceProps) {
   const [photoData, setPhotoData] = useState<ApodResponse | null>(null);
 
   useEffect(() => {
@@ -55,27 +59,58 @@ function Space() {
     );
   }
 
+  // -------------------------
+  // Variant: TITLE-ONLY VIEW
+  // -------------------------
+  if (variant === "title") {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-10 dark:text-white text-black">
+        {photoData.media_type === "image" ? (
+          <img
+            src={photoData.url}
+            alt={photoData.title}
+            className="w-full rounded-xl shadow-lg mb-6"
+          />
+        ) : (
+          <iframe
+            title="space-video"
+            src={photoData.url}
+            allowFullScreen
+            className="w-full h-96 rounded-xl shadow-lg mb-6"
+          />
+        )}
+
+        <p className="dark:text-gray-300 text-gray-800 mb-5">{photoData.date}</p>
+        <h1 className="text-xl font-bold mb-3">{photoData.title}</h1>
+      </div>
+    );
+  }
+
+  // -------------------------
+  // Variant: FULL VIEW
+  // -------------------------
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10 dark:text-white text-black">
+    <div className="dark:text-white text-black">
       {photoData.media_type === "image" ? (
         <img
           src={photoData.url}
           alt={photoData.title}
-          className="w-full rounded-xl shadow-lg mb-6"
+          className="w-full rounded-xl shadow-xl mb-6"
         />
       ) : (
         <iframe
           title="space-video"
           src={photoData.url}
           allowFullScreen
-          className="w-full h-96 rounded-xl shadow-lg mb-6"
+          className="w-full h-96 rounded-xl shadow-xl mb-6"
         />
       )}
 
-      <p className="dark:text-gray-300 text-gray-800 mb-5">{photoData.date}</p>
-      <h1 className="text-xl font-bold mb-3">{photoData.title}</h1>
+      {/* <h1 className="text-3xl font-bold mb-4">{photoData.title}</h1>
+      <p className="dark:text-gray-300 text-gray-800 mb-4">{photoData.date}</p>
+      <p className="dark:text-gray-400 text-gray-700 leading-relaxed">
+        {photoData.explanation}
+      </p> */}
     </div>
   );
 }
-
-export default Space;

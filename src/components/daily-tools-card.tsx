@@ -1,43 +1,194 @@
+"use client"
+import Image from "next/image"
 import RubberBandCard from "./rubber-band-card"
-import { Github, Zap, Code, Figma, LayoutGrid, Palette } from "lucide-react"
+import { Github, Zap, Code,LayoutGrid, Palette } from "lucide-react"
+import ApodViewer from "@/components/apod";
+import Space from "@/components/apod";
+import { useState, useEffect } from "react";
 
-export default function DailyToolsCard() {
-  const tools = [
-    { icon: Github, label: "GitHub", color: "text-gray-300" },
-    { icon: Zap, label: "Vercel", color: "text-blue-400" },
-    { icon: Code, label: "VS Code", color: "text-blue-500" },
-    { icon: Figma, label: "Figma", color: "text-purple-400" },
-    { icon: LayoutGrid, label: "Clerk", color: "text-amber-300" },
-    { icon: Palette, label: "Tailwind", color: "text-cyan-300" },
-  ]
+function QuoteBox() {
+  const [quote, setQuote] = useState<string | null>(null);
+  const [author, setAuthor] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchQuote() {
+      try {
+        const res = await fetch(
+          "https://api.api-ninjas.com/v2/quotes?categories=success,wisdom",
+          {
+            headers: {
+              "X-Api-Key": process.env.NEXT_PUBLIC_NINJA_KEY!, 
+            },
+          }
+        );
+
+        const data = await res.json();
+        if (data && data[0]) {
+          setQuote(data[0].quote);
+          setAuthor(data[0].author);
+        }
+      } catch (err) {
+        console.error("Quote API failed", err);
+      }
+    }
+
+    fetchQuote();
+  }, []);
+
+  if (!quote) {
+    return (
+      <div className="text-sm text-gray-500 italic p-2 animate-pulse">
+        loading motivation…
+      </div>
+    );
+  }
 
   return (
-    <RubberBandCard className="w-full p-6" variant={"outline"}>
+    <>
+      <p className="text-sm">"{quote}"</p>
+      <p className="text-xs font-light">   — {author}</p>
+    </>
+  );
+}
+
+
+
+export default function DailyToolsCard() {
+
+  return (
+    <RubberBandCard className="w-full p-2" variant={"outline"}>
       <div className="grid h-full grid grid-cols-1 sm:grid-cols-5 sm:grid-rows-7 max-sm:py-2 max-sm:gap-2 !shadow-none">
         <div className="row-start-2 row-end-3 sm:col-start-1 sm:col-end-2 sm:row-start-1 sm:row-end-8 ">
+          <div className="rounded-2xl bg-white/50 flex flex-col justify-center items-center border border-white p-2 gap-2">
+            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-2 
+                transition-transform duration-300 ease-out hover:scale-110">
+              <V0 />
+            </div>
 
+            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-2 
+                transition-transform duration-300 ease-out hover:scale-110">
+              <Figma />
+            </div>
+
+            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-3 
+                transition-transform duration-300 ease-out hover:scale-110">
+              <VS />
+            </div>
+
+            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-3 
+                transition-transform duration-300 ease-out hover:scale-110">
+              <Motion />
+            </div>
+
+          </div>
         </div>
+        
         <div className=" sm:col-start-2 sm:col-end-4  sm:row-start-1 sm:row-end-3">
+          <p className="text-3xl font-bold pl-2">
+            DAILY
+            <br/>
+            <p className="text-2xl font-normal">Tool</p>
+            STACK.
+          </p>
+        </div>
 
+
+        <div className="sm:col-start-4 sm:col-end-6 sm:row-start-1 sm:row-end-4 relative rounded-3xl max-sm:h-[400px]">
+          <Space />
         </div>
-        <div className="sm:col-start-4 sm:col-end-6 sm:row-start-1 sm:row-end-4 relative border border-zinc-700/20 rounded-3xl max-sm:h-[400px]">
-        </div>
+
         <div className="sm:col-start-4 sm:col-end-6 sm:row-start-4 sm:row-end-5">
+          <QuoteBox />
+        </div>
 
-        </div>
-        <div className="row-start-7 sm:col-start-2 sm:col-end-4  sm:row-start-3 sm:row-end-4 relative max-sm:hidden">
-
-        </div>
-        <div className=" sm:col-start-2 sm:col-end-4  sm:row-start-4 sm:row-end-7 border-dark-3 dark:border-dark-5 rounded-3xl bg-transparent group relative">
-
-        </div>
-        <div className=" sm:col-start-2 sm:col-end-4 sm:row-start-7 sm:row-end-8 p-1">
-          
-        </div>
-        <div className="sm:col-start-4 sm:col-end-6 sm:row-start-5 sm:row-end-8 relative flex flex-col-reverse items-center bg-transparent justify-start p-1">
-          
+        <div className="row-start-7 sm:col-start-2 sm:col-end-4 sm:row-start-3 sm:row-end-4 relative max-sm:hidden px-2">
+          <div className="relative w-full h-full mx-auto">
+            <Image
+              alt="waves"
+              src="/waves.svg"
+              fill
+              className="object-cover rounded-2xl"
+            />
+          </div>
         </div>
       </div>
     </RubberBandCard>
+  )
+}
+
+
+function V0() {
+  return(
+    <svg fill="currentColor" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="size-10"><path d="M23.3919 0H32.9188C36.7819 0 39.9136 3.13165 39.9136 6.99475V16.0805H36.0006V6.99475C36.0006 6.90167 35.9969 6.80925 35.9898 6.71766L26.4628 16.079C26.4949 16.08 26.5272 16.0805 26.5595 16.0805H36.0006V19.7762H26.5595C22.6964 19.7762 19.4788 16.6139 19.4788 12.7508V3.68923H23.3919V12.7508C23.3919 12.9253 23.4054 13.0977 23.4316 13.2668L33.1682 3.6995C33.0861 3.6927 33.003 3.68923 32.9188 3.68923H23.3919V0Z"></path><path d="M13.7688 19.0956L0 3.68759H5.53933L13.6231 12.7337V3.68759H17.7535V17.5746C17.7535 19.6705 15.1654 20.6584 13.7688 19.0956Z"></path></svg>
+  )
+}
+
+function Figma() {
+  return(
+    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00005 2.04999H5.52505C4.71043 2.04999 4.05005 2.71037 4.05005 3.52499C4.05005 4.33961 4.71043 4.99999 5.52505 4.99999H7.00005V2.04999ZM7.00005 1.04999H8.00005H9.47505C10.842 1.04999 11.95 2.15808 11.95 3.52499C11.95 4.33163 11.5642 5.04815 10.9669 5.49999C11.5642 5.95184 11.95 6.66836 11.95 7.475C11.95 8.8419 10.842 9.95 9.47505 9.95C8.92236 9.95 8.41198 9.76884 8.00005 9.46266V9.95L8.00005 11.425C8.00005 12.7919 6.89195 13.9 5.52505 13.9C4.15814 13.9 3.05005 12.7919 3.05005 11.425C3.05005 10.6183 3.43593 9.90184 4.03317 9.44999C3.43593 8.99814 3.05005 8.28163 3.05005 7.475C3.05005 6.66836 3.43594 5.95184 4.03319 5.5C3.43594 5.04815 3.05005 4.33163 3.05005 3.52499C3.05005 2.15808 4.15814 1.04999 5.52505 1.04999H7.00005ZM8.00005 2.04999V4.99999H9.47505C10.2897 4.99999 10.95 4.33961 10.95 3.52499C10.95 2.71037 10.2897 2.04999 9.47505 2.04999H8.00005ZM5.52505 8.94998H7.00005L7.00005 7.4788L7.00005 7.475L7.00005 7.4712V6H5.52505C4.71043 6 4.05005 6.66038 4.05005 7.475C4.05005 8.28767 4.70727 8.94684 5.5192 8.94999L5.52505 8.94998ZM4.05005 11.425C4.05005 10.6123 4.70727 9.95315 5.5192 9.94999L5.52505 9.95H7.00005L7.00005 11.425C7.00005 12.2396 6.33967 12.9 5.52505 12.9C4.71043 12.9 4.05005 12.2396 4.05005 11.425ZM8.00005 7.47206C8.00164 6.65879 8.66141 6 9.47505 6C10.2897 6 10.95 6.66038 10.95 7.475C10.95 8.28962 10.2897 8.95 9.47505 8.95C8.66141 8.95 8.00164 8.29121 8.00005 7.47794V7.47206Z" 
+    fill="white"></path> </g></svg>
+  )
+}
+
+function VS() {
+  return(
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M70.9119 99.3171C72.4869 99.9307 74.2828 99.8914 75.8725 99.1264L96.4608 89.2197C98.6242 88.1787 100 85.9892 100 83.5872V16.4133C100 14.0113 98.6243 11.8218 96.4609 10.7808L75.8725 0.873756C73.7862 -0.130129 71.3446 0.11576 69.5135 1.44695C69.252 1.63711 69.0028 1.84943 68.769 2.08341L29.3551 38.0415L12.1872 25.0096C10.589 23.7965 8.35363 23.8959 6.86933 25.2461L1.36303 30.2549C-0.452552 31.9064 -0.454633 34.7627 1.35853 36.417L16.2471 50.0001L1.35853 63.5832C-0.454633 65.2374 -0.452552 68.0938 1.36303 69.7453L6.86933 74.7541C8.35363 76.1043 10.589 76.2037 12.1872 74.9905L29.3551 61.9587L68.769 97.9167C69.3925 98.5406 70.1246 99.0104 70.9119 99.3171ZM75.0152 27.2989L45.1091 50.0001L75.0152 72.7012V27.2989Z" fill="white"/>
+    </mask>
+    <g mask="url(#mask0)">
+    <path d="M96.4614 10.7962L75.8569 0.875542C73.4719 -0.272773 70.6217 0.211611 68.75 2.08333L1.29858 63.5832C-0.515693 65.2373 -0.513607 68.0937 1.30308 69.7452L6.81272 74.754C8.29793 76.1042 10.5347 76.2036 12.1338 74.9905L93.3609 13.3699C96.086 11.3026 100 13.2462 100 16.6667V16.4275C100 14.0265 98.6246 11.8378 96.4614 10.7962Z" fill="#0065A9"/>
+    <g filter="url(#filter0_d)">
+    <path d="M96.4614 89.2038L75.8569 99.1245C73.4719 100.273 70.6217 99.7884 68.75 97.9167L1.29858 36.4169C-0.515693 34.7627 -0.513607 31.9063 1.30308 30.2548L6.81272 25.246C8.29793 23.8958 10.5347 23.7964 12.1338 25.0095L93.3609 86.6301C96.086 88.6974 100 86.7538 100 83.3334V83.5726C100 85.9735 98.6246 88.1622 96.4614 89.2038Z" fill="#007ACC"/>
+    </g>
+    <g filter="url(#filter1_d)">
+    <path d="M75.8578 99.1263C73.4721 100.274 70.6219 99.7885 68.75 97.9166C71.0564 100.223 75 98.5895 75 95.3278V4.67213C75 1.41039 71.0564 -0.223106 68.75 2.08329C70.6219 0.211402 73.4721 -0.273666 75.8578 0.873633L96.4587 10.7807C98.6234 11.8217 100 14.0112 100 16.4132V83.5871C100 85.9891 98.6234 88.1786 96.4586 89.2196L75.8578 99.1263Z" fill="#1F9CF0"/>
+    </g>
+    <g  opacity="0.25">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M70.8511 99.3171C72.4261 99.9306 74.2221 99.8913 75.8117 99.1264L96.4 89.2197C98.5634 88.1787 99.9392 85.9892 99.9392 83.5871V16.4133C99.9392 14.0112 98.5635 11.8217 96.4001 10.7807L75.8117 0.873695C73.7255 -0.13019 71.2838 0.115699 69.4527 1.44688C69.1912 1.63705 68.942 1.84937 68.7082 2.08335L29.2943 38.0414L12.1264 25.0096C10.5283 23.7964 8.29285 23.8959 6.80855 25.246L1.30225 30.2548C-0.513334 31.9064 -0.515415 34.7627 1.29775 36.4169L16.1863 50L1.29775 63.5832C-0.515415 65.2374 -0.513334 68.0937 1.30225 69.7452L6.80855 74.754C8.29285 76.1042 10.5283 76.2036 12.1264 74.9905L29.2943 61.9586L68.7082 97.9167C69.3317 98.5405 70.0638 99.0104 70.8511 99.3171ZM74.9544 27.2989L45.0483 50L74.9544 72.7012V27.2989Z" fill="url(#paint0_linear)"/>
+    </g>
+    </g>
+    <defs>
+    <filter id="filter0_d" x="-8.39411" y="15.8291" width="116.727" height="92.2456" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+    <feOffset/>
+    <feGaussianBlur stdDeviation="4.16667"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="overlay" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <filter id="filter1_d" x="60.4167" y="-8.07558" width="47.9167" height="116.151" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+    <feOffset/>
+    <feGaussianBlur stdDeviation="4.16667"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+    <feBlend mode="overlay" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <linearGradient id="paint0_linear" x1="49.9392" y1="0.257812" x2="49.9392" y2="99.7423" gradientUnits="userSpaceOnUse">
+    <stop stop-color="white"/>
+    <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    </defs>
+    </svg>
+
+  )
+}
+
+function Motion() {
+  return(
+    <svg id="svg12411545518" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 9">
+      <defs>
+      </defs>
+      <path  fill="#fff312" d="M9.1,0l-4.7,9H0L3.7,2c.6-1.1,2-2,3.2-2h2.2ZM19.7,2.2c0-1.2,1-2.2,2.2-2.2s2.2,1,2.2,2.2-1,2.2-2.2,2.2-2.2-1-2.2-2.2ZM9.9,0h4.3l-4.7,9h-4.3L9.9,0ZM15,0h4.3l-3.7,7c-.6,1.1-2,2-3.2,2h-2.2L15,0Z"/>
+    </svg>
+  )
+}
+
+function Waves() {
+  return(
+    <svg id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg"  version="1.1"><g id="wave1" ><path d="M0 73L16.7 66C33.3 59 66.7 45 100 47C133.3 49 166.7 67 200 74C233.3 81 266.7 77 300 76C333.3 75 366.7 77 400 78C433.3 79 466.7 79 500 76C533.3 73 566.7 67 600 66C633.3 65 666.7 69 700 68C733.3 67 766.7 61 800 61C833.3 61 866.7 67 883.3 70L900 73L900 0L883.3 0C866.7 0 833.3 0 800 0C766.7 0 733.3 0 700 0C666.7 0 633.3 0 600 0C566.7 0 533.3 0 500 0C466.7 0 433.3 0 400 0C366.7 0 333.3 0 300 0C266.7 0 233.3 0 200 0C166.7 0 133.3 0 100 0C66.7 0 33.3 0 16.7 0L0 0Z" fill="#6198ff"></path><path d="M0 235L16.7 216C33.3 197 66.7 159 100 159C133.3 159 166.7 197 200 221C233.3 245 266.7 255 300 247C333.3 239 366.7 213 400 212C433.3 211 466.7 235 500 231C533.3 227 566.7 195 600 186C633.3 177 666.7 191 700 195C733.3 199 766.7 193 800 188C833.3 183 866.7 179 883.3 177L900 175L900 71L883.3 68C866.7 65 833.3 59 800 59C766.7 59 733.3 65 700 66C666.7 67 633.3 63 600 64C566.7 65 533.3 71 500 74C466.7 77 433.3 77 400 76C366.7 75 333.3 73 300 74C266.7 75 233.3 79 200 72C166.7 65 133.3 47 100 45C66.7 43 33.3 57 16.7 64L0 71Z" fill="#4385ff"></path><path d="M0 331L16.7 319C33.3 307 66.7 283 100 278C133.3 273 166.7 287 200 304C233.3 321 266.7 341 300 338C333.3 335 366.7 309 400 302C433.3 295 466.7 307 500 304C533.3 301 566.7 283 600 275C633.3 267 666.7 269 700 276C733.3 283 766.7 295 800 296C833.3 297 866.7 287 883.3 282L900 277L900 173L883.3 175C866.7 177 833.3 181 800 186C766.7 191 733.3 197 700 193C666.7 189 633.3 175 600 184C566.7 193 533.3 225 500 229C466.7 233 433.3 209 400 210C366.7 211 333.3 237 300 245C266.7 253 233.3 243 200 219C166.7 195 133.3 157 100 157C66.7 157 33.3 195 16.7 214L0 233Z" fill="#2071ff"></path><path d="M0 415L16.7 403C33.3 391 66.7 367 100 359C133.3 351 166.7 359 200 367C233.3 375 266.7 383 300 378C333.3 373 366.7 355 400 356C433.3 357 466.7 377 500 378C533.3 379 566.7 361 600 350C633.3 339 666.7 335 700 344C733.3 353 766.7 375 800 372C833.3 369 866.7 341 883.3 327L900 313L900 275L883.3 280C866.7 285 833.3 295 800 294C766.7 293 733.3 281 700 274C666.7 267 633.3 265 600 273C566.7 281 533.3 299 500 302C466.7 305 433.3 293 400 300C366.7 307 333.3 333 300 336C266.7 339 233.3 319 200 302C166.7 285 133.3 271 100 276C66.7 281 33.3 305 16.7 317L0 329Z" fill="#0061f1"></path><path d="M0 499L16.7 509C33.3 519 66.7 539 100 544C133.3 549 166.7 539 200 529C233.3 519 266.7 509 300 505C333.3 501 366.7 503 400 511C433.3 519 466.7 533 500 531C533.3 529 566.7 511 600 503C633.3 495 666.7 497 700 504C733.3 511 766.7 523 800 523C833.3 523 866.7 511 883.3 505L900 499L900 311L883.3 325C866.7 339 833.3 367 800 370C766.7 373 733.3 351 700 342C666.7 333 633.3 337 600 348C566.7 359 533.3 377 500 376C466.7 375 433.3 355 400 354C366.7 353 333.3 371 300 376C266.7 381 233.3 373 200 365C166.7 357 133.3 349 100 357C66.7 365 33.3 389 16.7 401L0 413Z" fill="#0056d6"></path><path d="M0 601L16.7 601C33.3 601 66.7 601 100 601C133.3 601 166.7 601 200 601C233.3 601 266.7 601 300 601C333.3 601 366.7 601 400 601C433.3 601 466.7 601 500 601C533.3 601 566.7 601 600 601C633.3 601 666.7 601 700 601C733.3 601 766.7 601 800 601C833.3 601 866.7 601 883.3 601L900 601L900 497L883.3 503C866.7 509 833.3 521 800 521C766.7 521 733.3 509 700 502C666.7 495 633.3 493 600 501C566.7 509 533.3 527 500 529C466.7 531 433.3 517 400 509C366.7 501 333.3 499 300 503C266.7 507 233.3 517 200 527C166.7 537 133.3 547 100 542C66.7 537 33.3 517 16.7 507L0 497Z" fill="#004cbb"></path></g><g id="wave2" ><path d="M0 61L13.7 87C27.3 113 54.7 165 82 192C109.3 219 136.7 221 163.8 221C191 221 218 219 245.2 204C272.3 189 299.7 161 327 154C354.3 147 381.7 161 409 155C436.3 149 463.7 123 491 124C518.3 125 545.7 153 573 167C600.3 181 627.7 181 654.8 180C682 179 709 177 736.2 168C763.3 159 790.7 143 818 141C845.3 139 872.7 151 886.3 157L900 163L900 0L886.3 0C872.7 0 845.3 0 818 0C790.7 0 763.3 0 736.2 0C709 0 682 0 654.8 0C627.7 0 600.3 0 573 0C545.7 0 518.3 0 491 0C463.7 0 436.3 0 409 0C381.7 0 354.3 0 327 0C299.7 0 272.3 0 245.2 0C218 0 191 0 163.8 0C136.7 0 109.3 0 82 0C54.7 0 27.3 0 13.7 0L0 0Z" fill="#6198ff"></path><path d="M0 139L13.7 158C27.3 177 54.7 215 82 235C109.3 255 136.7 257 163.8 263C191 269 218 279 245.2 272C272.3 265 299.7 241 327 232C354.3 223 381.7 229 409 224C436.3 219 463.7 203 491 206C518.3 209 545.7 231 573 247C600.3 263 627.7 273 654.8 267C682 261 709 239 736.2 221C763.3 203 790.7 189 818 196C845.3 203 872.7 231 886.3 245L900 259L900 161L886.3 155C872.7 149 845.3 137 818 139C790.7 141 763.3 157 736.2 166C709 175 682 177 654.8 178C627.7 179 600.3 179 573 165C545.7 151 518.3 123 491 122C463.7 121 436.3 147 409 153C381.7 159 354.3 145 327 152C299.7 159 272.3 187 245.2 202C218 217 191 219 163.8 219C136.7 219 109.3 217 82 190C54.7 163 27.3 111 13.7 85L0 59Z" fill="#3c80ff"></path><path d="M0 283L13.7 297C27.3 311 54.7 339 82 358C109.3 377 136.7 387 163.8 388C191 389 218 381 245.2 369C272.3 357 299.7 341 327 336C354.3 331 381.7 337 409 323C436.3 309 463.7 275 491 274C518.3 273 545.7 305 573 321C600.3 337 627.7 337 654.8 346C682 355 709 373 736.2 362C763.3 351 790.7 311 818 311C845.3 311 872.7 351 886.3 371L900 391L900 257L886.3 243C872.7 229 845.3 201 818 194C790.7 187 763.3 201 736.2 219C709 237 682 259 654.8 265C627.7 271 600.3 261 573 245C545.7 229 518.3 207 491 204C463.7 201 436.3 217 409 222C381.7 227 354.3 221 327 230C299.7 239 272.3 263 245.2 270C218 277 191 267 163.8 261C136.7 255 109.3 253 82 233C54.7 213 27.3 175 13.7 156L0 137Z" fill="#0066ff"></path><path d="M0 481L13.7 489C27.3 497 54.7 513 82 513C109.3 513 136.7 497 163.8 497C191 497 218 513 245.2 526C272.3 539 299.7 549 327 545C354.3 541 381.7 523 409 516C436.3 509 463.7 513 491 508C518.3 503 545.7 489 573 490C600.3 491 627.7 507 654.8 519C682 531 709 539 736.2 539C763.3 539 790.7 531 818 523C845.3 515 872.7 507 886.3 503L900 499L900 389L886.3 369C872.7 349 845.3 309 818 309C790.7 309 763.3 349 736.2 360C709 371 682 353 654.8 344C627.7 335 600.3 335 573 319C545.7 303 518.3 271 491 272C463.7 273 436.3 307 409 321C381.7 335 354.3 329 327 334C299.7 339 272.3 355 245.2 367C218 379 191 387 163.8 386C136.7 385 109.3 375 82 356C54.7 337 27.3 309 13.7 295L0 281Z" fill="#0059dd"></path><path d="M0 601L13.7 601C27.3 601 54.7 601 82 601C109.3 601 136.7 601 163.8 601C191 601 218 601 245.2 601C272.3 601 299.7 601 327 601C354.3 601 381.7 601 409 601C436.3 601 463.7 601 491 601C518.3 601 545.7 601 573 601C600.3 601 627.7 601 654.8 601C682 601 709 601 736.2 601C763.3 601 790.7 601 818 601C845.3 601 872.7 601 886.3 601L900 601L900 497L886.3 501C872.7 505 845.3 513 818 521C790.7 529 763.3 537 736.2 537C709 537 682 529 654.8 517C627.7 505 600.3 489 573 488C545.7 487 518.3 501 491 506C463.7 511 436.3 507 409 514C381.7 521 354.3 539 327 543C299.7 547 272.3 537 245.2 524C218 511 191 495 163.8 495C136.7 495 109.3 511 82 511C54.7 511 27.3 495 13.7 487L0 479Z" fill="#004cbb"></path></g></svg>
   )
 }

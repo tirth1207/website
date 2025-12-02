@@ -18,7 +18,7 @@ export default function Page() {
           <ProfileCard />
           {/* <DailyToolsCard /> */}
         </div>
-        <div className="relative flex w-full rounded-xl border dark:border-dark-5 border-dark-3 transform-gpu cursor-grab sm:col-start-3 sm:col-end-7 sm:row-start-3 sm:row-end-6 border-none dark:bg-transparent [box-shadow:0_0px_0px_-0px_#ffffff1f_inset] dark:[box-shadow:0_0px_0px_-0px_#ffffff1f_inset] z-[9] bg-transparent max-sm:h-max">
+        <div className="relative flex w-full rounded-xl transform-gpu cursor-grab sm:col-start-3 sm:col-end-7 sm:row-start-3 sm:row-end-6  [box-shadow:0_0px_0px_-0px_#ffffff1f_inset] dark:[box-shadow:0_0px_0px_-0px_#ffffff1f_inset] z-[9] bg-transparent max-sm:h-max">
           <DailyToolsCard />
         </div>
 

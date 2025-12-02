@@ -3,8 +3,11 @@
 import { motion, useMotionValue, animate } from "motion/react"
 import type React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils" // if you have shadcn cn()
+import { cn } from "@/lib/utils"
 
+// ------------------------
+// Variants
+// ------------------------
 const cardVariants = cva(
   "rounded-2xl cursor-grab active:cursor-grabbing select-none transition-all",
   {
@@ -25,23 +28,43 @@ const cardVariants = cva(
   }
 )
 
+// ------------------------
+// FIXED: Remove React drag events to avoid type collision
+// ------------------------
 interface RubberBandCardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends Omit<
+      React.HTMLAttributes<HTMLDivElement>,
+      | "onDrag"
+      | "onDragStart"
+      | "onDragEnd"
+      | "onAnimationStart"
+      | "onAnimationEnd"
+      | "onAnimationIteration"
+      | "onTransitionEnd"
+      | "draggable"
+    >,
     VariantProps<typeof cardVariants> {
   children: React.ReactNode
 }
 
+
+// ------------------------
+// Component
+// ------------------------
 export default function RubberBandCard({
   children,
   className,
-  variant,    // <<— correct spelling
+  variant,
   ...props
 }: RubberBandCardProps) {
-
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  const handleDragEnd = () => {
+  // Motion v11 correct signature
+  const handleDragEnd = (
+    _event: MouseEvent | TouchEvent | PointerEvent,
+    _info: any
+  ) => {
     animate(x, 0, {
       type: "spring",
       stiffness: 500,

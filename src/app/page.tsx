@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import Markdown from "react-markdown";
 import Loading from "./loading";
+import Space from "@/components/apod";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -236,7 +237,7 @@ export default function Page() {
         </div>
       </section> */}
       <section>
-        <ApodViewer />
+        <Space variant="title" />
       </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
