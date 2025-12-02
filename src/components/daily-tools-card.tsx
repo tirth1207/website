@@ -45,7 +45,7 @@ function QuoteBox() {
 
   return (
     <>
-      <p className="text-sm">"{quote}"</p>
+      <p className="text-sm">&quot;{quote}&quot;</p>
       <p className="text-xs font-light">   — {author}</p>
     </>
   );
