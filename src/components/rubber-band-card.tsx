@@ -14,10 +14,11 @@ const cardVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-br from-zinc-900/80 to-zinc-950/90 backdrop-blur-xl shadow-2xl border border-white/10",
-        outline: "bg-transparent border border-zinc-700/40 p-3",
+          "dark:bg-gradient-to-br dark:from-zinc-900/30 dark:to-zinc-950/30 dark:backdrop-blur-xl dark:shadow-xl dark:border dark:border-white/5 bg-gradient-to-br from-white/30 to-zinc-100/30 backdrop-blur shadow-xl border border-black/5 ",
+        outline: "bg-transparent  p-3",
+        // border border-zinc-700/40
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+          "bg-secondary/50 text-secondary-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },

@@ -5,7 +5,7 @@ import { motion } from "motion/react"
 export default function ProjectsCard() {
   return (
     <RubberBandCard 
-      className="w-full h-full p-6 lg:p-8 dark:bg-[#c694f4] hover:scale-55 relative overflow-hidden"
+      className="w-full h-full p-6 lg:p-8 dark:bg-[#c694f4] bg-[#c694f4] hover:scale-55 relative overflow-hidden"
       variant="outline"
     >
 
@@ -41,7 +41,9 @@ export default function ProjectsCard() {
       <div className="absolute top-2 left-2 z-10">
         <Gear />
       </div>
-
+      <div className="absolute top-[50%] left-3">
+        <p className="text-3xl font-bold text-black">Projects.</p>
+      </div>
     </RubberBandCard>
   )
 }

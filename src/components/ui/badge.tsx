@@ -14,7 +14,7 @@ const badgeVariants = cva(
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive:
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        outline: "p-px text-xs dark:text-black font-normal border dark:border-dark-5/60 border-zinc-800 line-clamp-1 overflow-hidden w-max rounded-lg size-max hover:border-white/50 dark:hover:border-dark-4/50 transition-all hover:text-white bg-neutral-800/30 dark:bg-transparent backdrop-blur-xl backdrop-saturate-200",
+        outline: "p-px text-xs dark:text-black text-black font-normal border dark:border-dark-5/60 border-[#f0e2c9] line-clamp-1 overflow-hidden w-max rounded-lg size-max hover:border-white/50 dark:hover:border-dark-4/50 transition-all dark:hover:text-white hover:text-neutral-800 dark:bg-neutral-800/30 bg-neutral-400/30 dark:bg-transparent backdrop-blur-xl backdrop-saturate-200",
       },
     },
     defaultVariants: {

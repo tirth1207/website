@@ -6,10 +6,14 @@ import SocialLinksGrid from "@/components/social-links-grid"
 
 export default function Page() {
   return (
-    <div className="min-h-screen w-full px-6 lg:px-10 font-mono ">
+    <div className="min-h-screen w-full px-6 lg:px-10 font-mono 
+        bg-[url('/light-bg.png')] bg-cover bg-center bg-no-repeat 
+        dark:bg-[url('/dark-bg.png')]
+      ">
+      <div className="max-w-5xl mx-auto">
       <div className="grid gap-3 grid-cols-1 sm:grid-cols-8 sm:grid-rows-5 p-5 max-sm:p-4 sm:h-[770px] relative w-full max-sm:gap-3 max-sm:min-h-screen auto-rows-[1fr]">
         {/* LEFT COLUMN — Tech Stack */}
-        <div className="flex w-full rounded-xl border dark:border-dark-5 border-dark-3 transform-gpu  cursor-grab sm:col-start-1 sm:col-end-3 sm:row-start-1 sm:row-end-5 z-[8] max-sm:h-max relative !border-dark-3 dark:!border-0  dark:p-1 p-0.5">
+        <div className="flex w-full rounded-xl dark:border dark:border-dark-5 border-dark-3 transform-gpu  cursor-grab sm:col-start-1 sm:col-end-3 sm:row-start-1 sm:row-end-5 z-[8] max-sm:h-max relative !border-dark-3 dark:!border-0  dark:p-1 p-0.5">
           <TechStackCard />
         </div>
 
@@ -40,6 +44,7 @@ export default function Page() {
         <div className="flex w-full rounded-xl border dark:border-dark-5 border-dark-3 transform-gpu  cursor-grab row-start-4 sm:col-start-7 sm:col-end-9 sm:row-start-2 sm:row-end-4  border-none relative hover:scale-55 z-[8] max-sm:h-max mx-auto overflow-hidden">
           <ProjectsCard />
         </div>
+      </div>
       </div>
     </div>
   )

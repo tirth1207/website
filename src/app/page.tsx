@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import Markdown from "react-markdown";
 import Loading from "./loading";
 import Space from "@/components/apod";
+import DynamicScrollbar from "@/components/dynamic-scroll";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -34,7 +35,8 @@ export default function Page() {
     return <Loading />;
   }
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10 swipe-up-enter">
+    <main className="flex flex-col min-h-[100dvh] space-y-10 swipe-up-enter min-h-screen bg-background font-sans antialiased max-w-5xl mx-auto py-12 sm:py-24 px-6 overflow-hidden">
+      
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">

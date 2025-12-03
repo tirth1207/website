@@ -209,7 +209,7 @@ export const DATA = {
   education: [
     {
       school: "R.C. Technical Institute",
-      href: "https://webrcticomp.wixsite.com/rcticomputer",
+      href: "https://rcti-comp.vercel.app/",
       degree: "Diploma in Computer Engineering",
       logoUrl: "/RCTI_Logo.png",
       start: "2024",

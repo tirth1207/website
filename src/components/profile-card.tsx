@@ -4,6 +4,7 @@ import Image from "next/image"
 import RubberBandCard from "./rubber-band-card"
 import { MorphingText } from "./ui/morphing-text"
 import React from "react";
+import { ModeToggle } from "./mode-toggle"
 
 export default function ProfileCard() {
   const [time, setTime] = React.useState("");
@@ -51,27 +52,30 @@ export default function ProfileCard() {
             />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white">Tirth</h2>
+            <h2 className="text-xl font-bold dark:text-white text-black">Tirth</h2>
             <p className="text-zinc-400 text-xs">@rathodtirth</p>
+          </div>
+          <div className="flex w-full justify-end">
+            <ModeToggle />
           </div>
         </div>
 
         <div className="pt-2">
           <div className="mb-2 flex items-center gap-[12px]">
-            <p className="text-white font-semibold leading-none inline-block">I build  </p>
+            <p className="dark:text-white text-black font-semibold leading-none inline-block">I build  </p>
             <MorphingText className="leading-none" texts={[" Frontend", " FullStack"]} />
           </div>
 
-          <p className="text-zinc-300 text-xs leading-relaxed">
-            Hello, I&aposm Tirth! a 18 year old developer based in Ahmedabad - India.
+          <p className="dark:text-zinc-300 text-zinc-800 text-xs leading-relaxed">
+            Hello, I'm Tirth! a 18 year old developer based in Ahmedabad - India.
           </p>
         </div>
 
         <div className="absolute bottom-5 left-5 max-sm:hidden">
-          <p className="text-xs font-mono text-zinc-400/70">
-          “It&aposs not a bug,  
+          <p className="text-xs font-mono dark:text-zinc-400/70 text-zinc-800/70">
+          “It's not a bug,  
           <br/>
-          it&aposs a feature.”
+          it's a feature.”
           </p>
         </div>
 

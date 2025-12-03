@@ -59,24 +59,28 @@ export default function DailyToolsCard() {
     <RubberBandCard className="w-full p-2" variant={"outline"}>
       <div className="grid h-full grid grid-cols-1 sm:grid-cols-5 sm:grid-rows-7 max-sm:py-2 max-sm:gap-2 !shadow-none">
         <div className="row-start-2 row-end-3 sm:col-start-1 sm:col-end-2 sm:row-start-1 sm:row-end-8 ">
-          <div className="rounded-2xl bg-white/50 flex flex-col justify-center items-center border border-white p-2 gap-2">
-            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-2 
-                transition-transform duration-300 ease-out hover:scale-110">
+          <div className="w-fit rounded-2xl dark:bg-gradient-to-br dark:from-zinc-900/30 dark:to-zinc-950/30 dark:backdrop-blur-xl dark:shadow-2xl dark:border dark:border-white/10 bg-gradient-to-br from-white/30 to-zinc-100/30 backdrop-blur shadow-xl border border-black/5 flex flex-col justify-center items-center p-3 gap-3 ">
+            <div className="h-16 w-16 flex items-center justify-center 
+                  bg-zinc-900/40 border border-zinc-700/40 
+                  rounded-2xl p-2 shrink-0 hover:scale-110 text-white">
               <V0 />
             </div>
 
-            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-2 
-                transition-transform duration-300 ease-out hover:scale-110">
+            <div className="h-16 w-16 flex items-center justify-center 
+                  bg-zinc-900/40 border border-zinc-700/40 
+                  rounded-2xl p-2 shrink-0 hover:scale-110">
               <Figma />
             </div>
 
-            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-3 
-                transition-transform duration-300 ease-out hover:scale-110">
+            <div className="h-16 w-16 flex items-center justify-center 
+                  bg-zinc-900/40 border border-zinc-700/40 
+                  rounded-2xl p-2 shrink-0 hover:scale-110">
               <VS />
             </div>
 
-            <div className="h-16 w-16 bg-black flex justify-center items-center rounded-xl p-3 
-                transition-transform duration-300 ease-out hover:scale-110">
+            <div className="h-16 w-16 flex items-center justify-center 
+                  bg-zinc-900/40 border border-zinc-700/40 
+                  rounded-2xl p-2 shrink-0 hover:scale-110">
               <Motion />
             </div>
 
@@ -93,7 +97,7 @@ export default function DailyToolsCard() {
         </div>
 
 
-        <div className="sm:col-start-4 sm:col-end-6 sm:row-start-1 sm:row-end-4 relative rounded-3xl max-sm:h-[400px]">
+        <div className="sm:col-start-4 sm:col-end-6 sm:row-start-1 sm:row-end-4 relative rounded-3xl max-sm:h-[400px] h-fit">
           <Space />
         </div>
 

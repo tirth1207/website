@@ -8,6 +8,8 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import DynamicScrollbar from "@/components/dynamic-scroll";
+import MusicPlayer from "@/components/music-card";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -39,8 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-5xl mx-auto py-12 sm:py-24 px-6",
+        className={cn("overflow-scroll",
           fontSans.variable
         )}
       >
@@ -48,7 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <TooltipProvider delayDuration={0}>
             <LoadingProvider>
               {/* 🔥 This wrapper contains ONLY content that gets replaced by loading.tsx */}
-              <div className="content-wrapper">
+              <div className="content-wrapper overflow-hidden">
+                <DynamicScrollbar>
+                  <MusicPlayer />
+                </DynamicScrollbar>
                 {children}
               </div>
 
