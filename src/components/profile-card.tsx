@@ -67,15 +67,15 @@ export default function ProfileCard() {
           </div>
 
           <p className="dark:text-zinc-300 text-zinc-800 text-xs leading-relaxed">
-            Hello, I'm Tirth! a 18 year old developer based in Ahmedabad - India.
+            Hello, I&apos;m Tirth! a 18 year old developer based in Ahmedabad - India.
           </p>
         </div>
 
         <div className="absolute bottom-5 left-5 max-sm:hidden">
           <p className="text-xs font-mono dark:text-zinc-400/70 text-zinc-800/70">
-          “It's not a bug,  
+          “It&apos;s not a bug,  
           <br/>
-          it's a feature.”
+          it&apos;s a feature.”
           </p>
         </div>
 
