@@ -25,8 +25,7 @@ export default function SocialLinksGrid() {
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
-                  rounded-2xl p-2 shrink-0
-                " hover:scale-105 transition-transform
+                  rounded-2xl p-2 shrink-0 hover:scale-105 transition-transform"
               >
                 <Github_svg />
               </div>
@@ -36,8 +35,7 @@ export default function SocialLinksGrid() {
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
-                  rounded-2xl p-2 shrink-0
-                " hover:scale-105 transition-transform
+                  rounded-2xl p-2 shrink-0 hover:scale-105 transition-transform"
               >
                 <X_svg />
               </div>
@@ -49,8 +47,7 @@ export default function SocialLinksGrid() {
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
-                  rounded-2xl p-2 shrink-0
-                " hover:scale-105 transition-transform
+                  rounded-2xl p-2 shrink-0 hover:scale-105 transition-transform"
               >
                 <Gmail_svg />
               </div>
@@ -60,8 +57,7 @@ export default function SocialLinksGrid() {
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
-                  rounded-2xl p-2 shrink-0
-                " hover:scale-105 transition-transform
+                  rounded-2xl p-2 shrink-0 hover:scale-105 transition-transform"
               >
                 <Insta_svg />
               </div>
@@ -71,8 +67,7 @@ export default function SocialLinksGrid() {
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
-                  rounded-2xl p-2 shrink-0
-                " hover:scale-105 transition-transform
+                  rounded-2xl p-2 shrink-0 hover:scale-105 transition-transform"
               >
                 <LinkedIn_svg />
               </div>
