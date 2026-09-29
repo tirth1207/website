@@ -20,53 +20,63 @@ export default function SocialLinksGrid() {
               <h1 className="text-3xl font-black text-white tracking-tight">LIN</h1>
               <h1 className="text-3xl font-black text-white tracking-tight">KS.</h1>
             </div>
-            <div
+            <a href="https://github.com/tirth1207" target="_blank" rel="noopener noreferrer" aria-label="Github">
+              <div
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
                   rounded-2xl p-2 shrink-0
-                "
+                " hover:scale-105 transition-transform
               >
                 <Github_svg />
-            </div>
-            <div
+              </div>
+            </a>
+            <a href="https://x.com/RathodTirth123" target="_blank" rel="noopener noreferrer" aria-label="X">
+              <div
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
                   rounded-2xl p-2 shrink-0
-                "
+                " hover:scale-105 transition-transform
               >
                 <X_svg />
-            </div>
+              </div>
+            </a>
         </div>
         <div className="flex w-full flex-rows gap-2">
-          <div
+          <a href="mailto:rathodtirth1207@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Gmail">
+              <div
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
                   rounded-2xl p-2 shrink-0
-                "
+                " hover:scale-105 transition-transform
               >
                 <Gmail_svg />
-            </div>
-            <div
+              </div>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Insta">
+              <div
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
                   rounded-2xl p-2 shrink-0
-                "
+                " hover:scale-105 transition-transform
               >
                 <Insta_svg />
-            </div>
-            <div
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/tirth-rathod-2b2074328" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <div
                 className="
                   h-12 w-12 flex items-center justify-center 
                   bg-zinc-900/40 border border-zinc-700/40 
                   rounded-2xl p-2 shrink-0
-                "
+                " hover:scale-105 transition-transform
               >
                 <LinkedIn_svg />
-            </div>
+              </div>
+            </a>
         </div>
       </div>
       
