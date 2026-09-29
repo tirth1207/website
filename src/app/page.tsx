@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { useLoading } from "@/context/loading-context";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import Loading from "./loading";
 import Space from "@/components/apod";
@@ -21,6 +21,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   const { loading, setLoading } = useLoading();
+  const [showSpark, setShowSpark] = useState(false);
   
   useEffect(() => {
     // Simulate loading time or fetch data
@@ -54,10 +55,29 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
+              <button
+                type="button"
+                aria-label="Reveal a little surprise"
+                onClick={() => {
+                  setShowSpark(true);
+                  window.setTimeout(() => setShowSpark(false), 900);
+                }}
+                className="relative shrink-0 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Avatar className="size-28 border transition-transform duration-500 hover:scale-105 hover:rotate-2">
+                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                  <AvatarFallback>{DATA.initials}</AvatarFallback>
+                </Avatar>
+                <span className="pointer-events-none absolute -right-1 -top-1 text-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">✦</span>
+                {showSpark && (
+                  <span className="pointer-events-none absolute inset-0 animate-ping rounded-full border border-foreground/30" />
+                )}
+                {showSpark && (
+                  <span className="pointer-events-none absolute -inset-4 grid place-items-center text-xs font-mono text-muted-foreground animate-in fade-in zoom-in duration-300">
+                    &lt;build/&gt;
+                  </span>
+                )}
+              </button>
             </BlurFade>
           </div>
         </div>
