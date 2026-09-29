@@ -2,11 +2,11 @@ import RubberBandCard from "./rubber-band-card"
 
 export default function SocialLinksGrid() {
   const links = [
-    { label: "GitHub", href: "#", svg: Github_svg },
-    { label: "Twitter", href: "#", svg: X_svg },
-    { label: "Gmail", href: "#", svg: Gmail_svg },
-    { label: "Instagram", href: "#", svg: Insta_svg },
-    { label: "LinkedIn", href: "#", svg: LinkedIn_svg },
+    { label: "GitHub", href: "https://github.com/tirth1207", svg: Github_svg },
+    { label: "X", href: "https://x.com/RathodTirth123", svg: X_svg },
+    { label: "Gmail", href: "mailto:rathodtirth1207@gmail.com", svg: Gmail_svg },
+    { label: "Instagram", href: "https://www.instagram.com/", svg: Insta_svg },
+    { label: "LinkedIn", href: "https://linkedin.com/in/tirth-rathod-2b2074328", svg: LinkedIn_svg },
   ]
 
   return (
